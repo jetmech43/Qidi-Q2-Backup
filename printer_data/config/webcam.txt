@@ -1,0 +1,6 @@
+[webcam]
+enabled: true
+stream_url: http://[192.168.59.142]:8000/?action=stream
+snapshot_url: http://[192.168.59.142]:8000/?action=snapshot
+target_fps: 10
+resolution: 640x480

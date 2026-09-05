@@ -7,3 +7,10 @@ printer-[0-9]*_[0-9]*.cfg
 *.bkp
 *.csv
 *.zip
+*.png
+*.stdata
+backups
+ShakeTune_results
+*.backup
+printer_[0-9]*.cfg
+gcode_macro_[0-9]*.cfg

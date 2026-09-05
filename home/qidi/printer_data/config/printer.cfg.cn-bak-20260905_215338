@@ -1,13 +1,13 @@
-# MAX4 printer configuration file
-# QIDI MAX4385x405x342mmprint volume
+# MAX4 打印机配置文件
+# QIDI MAX4385x405x342mm打印空间
 
-# ============ External config includes ============
-[include MCU_ID.cfg]            # MCU ID config
-[include timelapse.cfg]         # Timelapse config
+# ============ 外部配置文件包含 ============
+[include MCU_ID.cfg]            # MCU标识配置
+[include timelapse.cfg]         # 延时摄影配置
 
 
 
-# ============ Klipper macro library config ============
+# ============ Klipper宏库配置 ============
 [gcode_macro _km_options]
 # Any options variables declared here
 gcode:
@@ -20,7 +20,7 @@ variable_extruder: 0
 gcode:
   M118 STATUS_TEST {rawparams}
 
-# ============ MCU config ============
+# ============ MCU配置 ============
 [mcu THR]
 serial: /dev/ttyS4
 restart_method: command
@@ -42,12 +42,12 @@ probe_points:
    135, 135, 10        
 
 
-# ============ Pin config ============
+# ============ 引脚配置 ============
 [duplicate_pin_override]
 pins:
   THR:PA11
 
-# ============ Filament runout sensor ============
+# ============ 耗材检测传感器 ============
 [filament_switch_sensor filament_switch_sensor]
 pause_on_runout: True     
 runout_gcode:             
@@ -63,29 +63,29 @@ runout_gcode:
             {% else %}
               SET_PRINT_SUB_STATUS SUB_STATUS=ext_filament_exhausted
             {% endif %}
-insert_gcode:             # code run when filament is inserted
-event_delay: 3.0          # event delay time
-pause_delay: 0.5          # pause delay time
-switch_pin:!THR:PA1       # detection switch pin
+insert_gcode:             # 插入耗材时执行的代码
+event_delay: 3.0          # 事件延迟时间
+pause_delay: 0.5          # 暂停延迟时间
+switch_pin:!THR:PA1       # 检测开关引脚
 
-# ============ Bed leveling screw positions ============
+# ============ 床螺丝调平位置 ============
 [bed_screws]
-screw1:30,30              # front left screw
+screw1:30,30              # 前左螺丝
 screw1_name: Front left
-screw2: 240,30            # front right screw
+screw2: 240,30            # 前右螺丝
 screw2_name: Front right
-screw3: 240,240           # rear right screw
+screw3: 240,240           # 后右螺丝
 screw3_name: Last right
-screw4: 30,240            # rear left screw
+screw4: 30,240            # 后左螺丝
 
 
-# ============ Force move config ============
+# ============ 强制移动配置 ============
 [force_move]
 enable_force_move : True
 
 
 
-# ============ Extruder config ============
+# ============ 挤出机配置 ============
 [extruder]
 step_pin:THR:PB9
 dir_pin:!THR:PB8
@@ -487,16 +487,16 @@ resolution: 1.0
 
 # [neopixel RGB]
 # pin:PA10                  
-# #   Pin connected to the neopixel.
-# #   This parameter must be provided.
+# #   连接到neopixel的引脚。
+# #   必须提供此参数。
 # chain_count:25
-# #   Number of neopixel chips in the daisy chain.
-# #   Default is 1 (one neopixel chip connected to this pin).
+# #   菊链中 neopixel 芯片的数量。
+# #   默认为1（代表有一个neopixel芯片连接到了这个引脚）。
 # color_order: GRB
-# #   Set LED RGB pixel order (a string with letters R(red), G(green),
-# #    B(blue), W(white); W is optional). Or use a
-# #   comma-separated list to describe the pixel order.
-# #   Default is GRB.
+# #   设置LED硬件的RGB像素顺序（提供一个包含字母R（红），G（绿）
+# #   ，B（蓝）和W（白）的字符串，W是可选的）。或者也可以用一个
+# #   逗号分隔字符列表来描述像素顺序。
+# #   默认为GRB。
 # initial_RED: 0.0
 # initial_GREEN: 0.0
 # initial_BLUE: 0.0
@@ -522,7 +522,7 @@ samples_tolerance_retries: 10
 # sampling_points_y: 8
 # grid_target: 22
 # algo: rbf
-# if_compensate_xy: true #on by default
+# if_compensate_xy: true #默认开启
 # spacing: 50
 # gain_x: 1.0
 # gain_y: 1.0
@@ -566,10 +566,10 @@ gcode:
 
 
 [virtual_sdcard]
-path: ~/printer_data/gcodes  # G-code file path
-on_error_gcode: CANCEL_PRINT # cancel print on error
+path: ~/printer_data/gcodes  # G代码文件路径
+on_error_gcode: CANCEL_PRINT # 出错时取消打印
 
-# ============ Multi-color config ============
+# ============ 多色配置 ============
 [include box.cfg]
 # [database]
 [multi_color_controller]
